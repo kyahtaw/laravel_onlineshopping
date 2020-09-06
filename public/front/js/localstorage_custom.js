@@ -87,7 +87,7 @@ $(document).ready(function(){
             console.log(id);
 
             var mycart=localStorage.getItem('mycart');
-            var mycart_obj=JSON.parse(mycart);
+            var mycart_obj=JSON.parse(mycart);//change string to array
             $.each(mycart_obj.product_list,function(i,v){
               if(v){
                 if(v.id==id){
@@ -106,31 +106,12 @@ $(document).ready(function(){
           })
 
 
-
-         /* $(".btn_order").click(function(){
-            var user_id=$(this).data('user_id');
-            console.log(user_id);
-            var mycart=localStorage.getItem('mycart');*/
-            /*var mycart_obj=JSON.parse(mycart);*/
-            /*$.post(
-              'order_product.php',{user_id:user_id,mycart:mycart}
-              ).done(function(data){*/
-                /*console.log(data);*/
-                /*var data=data;
-                console.log(data);
-
-                if(data!='Error' && data!='Error2'){
-                  var mydata=JSON.parse(data);
-                  var voucherid=mydata.voucherid;
-                  var html=`<div class="alert alert-success"><p>You have ordered successfully with Voucherid # ${voucherid}</p></div>`;
-                  $("#div_message").html(html);
+          //Clear work loclstroage
+          $(".btn_logout").click(function(){
+            
                   localStorage.clear();
-                  show_cart();
                   update_cart_count();
-                }
-
-              })
-            })*/
+            })
 
             $("#shoppingcart_table").on('click','.plus_btn',function(){
               var id=$(this).data('id');
@@ -199,7 +180,7 @@ $(document).ready(function(){
                       total+=subtotal;
 
                       html+=`<tr>
-                      <td>${id}</td>
+                      <td>${j}</td>
                       <td>${product_name}</td>
                       <td><img src='${product_photo}' width=120 height=100></td>
                       <td>${product_price}</td>
@@ -226,7 +207,7 @@ $(document).ready(function(){
                     }
                   })
                   html+=`<tr><td colspan=6></td>
-                  <td>Total:&nbsp;&nbsp;${total}</td></tr>`;
+                  <td>Total:&nbsp;&nbsp;${total}Ks</td></tr>`;
                   $("#shoppingcart_table").html(html);
                 }else{
                   $("#shoppingcart_table").html('');
@@ -261,8 +242,6 @@ $(document).ready(function(){
               })
             }
           })
-
-
 
           
 

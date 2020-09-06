@@ -34,9 +34,17 @@
 							<td>{{$item->codeno}}</td>
 							<td>{{$item->name}}</td>
 							<td>{{$item->price}}MMK</td>
-							<td><a href="#" class="btn btn-info mx-2">Detail</a>
+							<td><a href="{{route('items.show',$item->id)}}" class="btn btn-info mx-2">Detail</a>
 								<a href="{{route('items.edit',$item->id)}}" class="btn btn-warning mx-2">Edit</a>
-								<a href="#" class="btn btn-danger mx-2">Delete</a>
+
+
+								<form action="{{route('items.destroy',$item->id)}}" method="POST" class="d-inline-block">
+									@csrf
+									@method('DELETE')
+									<input type="submit" class="btn btn-danger  mt-2" value="Delete">
+								</form>
+
+
 								</td>
 						</tr>
 						@endforeach

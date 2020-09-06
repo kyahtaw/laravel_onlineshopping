@@ -37,7 +37,12 @@
 							<td>{{$order->total}}MMK</td>
 							<td>
 								<a href="{{route('orders.show',$order->id)}}" class="btn btn-info mx-2">Detail</a>
-								<a href="#" class="btn btn-warning mx-2">Edit</a></td>	
+								<form action="{{route('orders.destroy',$order->id)}}" method="POST" class="d-inline-block">
+									@csrf
+									@method('DELETE')
+									<input type="submit" class="btn btn-danger d-inline-block mt-2" value="Delete">
+								</form>
+							</td>	
 						</tr>
 						@endforeach
 

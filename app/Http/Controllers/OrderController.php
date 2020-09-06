@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use 
+use Illuminate\Support\Facades\Auth;
 use App\Order;
 
 class OrderController extends Controller
@@ -111,6 +111,7 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $order=Order::find($id)->delete();
+        return redirect()->route('orders.index');
     }
 }

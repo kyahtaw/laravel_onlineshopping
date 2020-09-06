@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Brand;
 use App\Item;
 use App\Subcategory;
 
@@ -17,38 +18,57 @@ class PageController extends Controller
     	/*$route = Route::current();*/
     	/*dd($route);*/
         $items=Item::all();
+        $brands = Brand::all();
         $categories=Category::all();
         $subcategories=Subcategory::all();
-    	return view('main',compact('categories','subcategories','items'));
+    	return view('main',compact('categories','subcategories','items','brands'));
 
     }  
-     public function brandfun($value='')
+     public function brandfun($id)
     {   
         /*$route = Route::current();*/
         /*dd($route);*/
-        return view('brand');
+        $items=Item::all();
+        $categories=Category::all();
+        $brands=Brand::find($id);
+        $subcategories=Subcategory::all();
+        return view('brand',compact('categories','subcategories','items','brands'));
 
     }  
     public function loginfun($value='')
     {   
         /*$route = Route::current();*/
         /*dd($route);*/
-        return view('login');
+        $categories=Category::all();
+        $subcategories=Subcategory::all();
+        return view('login',compact('categories','subcategories'));
 
     }  
     public function promotionfun($value='')
     {   
-        return view('promotion');
+
+        $items=Item::all();
+        $brands = Brand::all();
+        $categories=Category::all();
+        $subcategories=Subcategory::all();
+        return view('promotion',compact('categories','subcategories','items','brands'));
 
     }  
-    public function itemdetailfun($value='')
+    public function itemdetailfun($id)
     {   
-        return view('itemdetail');
+        $item = Item::find($id);
+        $categories=Category::all();
+        $brands=Brand::all();
+        $subcategories=Subcategory::all();
+        return view('itemdetail',compact('categories','subcategories','item','brands'));
 
     }  
     public function registerfun($value='')
     {   
-        return view('register');
+
+        $categories=Category::all();
+        $subcategories=Subcategory::all();
+        return view('register',compact('categories','subcategories'));
 
     } 
     public function shoppingcartfun($value='')
@@ -63,7 +83,10 @@ class PageController extends Controller
     }   
     public function subcategoryfun($value='')
     {   
+
         return view('subcategory');
 
     }   
+
+    
 }

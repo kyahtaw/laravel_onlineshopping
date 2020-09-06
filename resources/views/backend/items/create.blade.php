@@ -11,6 +11,9 @@
 				<label for="codeno" class="col-md-2">Code No</label>
 				<div class="col-md-8">
 					<input type="text" name="codeno" class="form-control">
+					@error('codeno')
+				<div class="alert alert-danger">{{$message}}</div>
+				@enderror
 				</div>
 			</div>
 
@@ -18,6 +21,9 @@
 				<label for="name" class="col-md-2">Name</label>
 				<div class="col-md-8">
 					<input type="text" name="name" class="form-control">
+					@error('name')
+				<div class="alert alert-danger">{{$message}}</div>
+				@enderror
 				</div>
 			</div>
 
@@ -25,6 +31,9 @@
 				<label for="photo" class="col-md-2">Photo</label>
 				<div class="col-md-8">
 					<input type="file" name="photo" class="form-control-file">
+					@error('photo')
+				<div class="alert alert-danger">{{$message}}</div>
+				@enderror
 				</div>
 			</div>
 
@@ -32,6 +41,9 @@
 				<label for="price" class="col-md-2">Price</label>
 				<div class="col-md-8">
 					<input type="number" name="price" class="form-control">
+					@error('price')
+				<div class="alert alert-danger">{{$message}}</div>
+				@enderror
 				</div>
 			</div>
 
@@ -39,7 +51,10 @@
 			<div class="row form-group">
 				<label for="discount" class="col-md-2">Discount</label>
 				<div class="col-md-8">
-					<input type="number" name="discount" class="form-control" value="0">
+					<input type="number" name="discount" class="form-control" >
+					@error('discount')
+				<div class="alert alert-danger">{{$message}}</div>
+				@enderror
 				</div>
 			</div>
 
@@ -47,6 +62,9 @@
 				<label for="description" class="col-md-2">Description</label>
 				<div class="col-md-8">
 					<textarea rows="2" class="form-control" name="description"></textarea>
+					@error('description')
+				<div class="alert alert-danger">{{$message}}</div>
+				@enderror
 				</div>
 			</div>
 

@@ -4,7 +4,7 @@
 
 <div class="jumbotron jumbotron-fluid subtitle">
   		<div class="container">
-    		<h1 class="text-center text-white"> Code Number </h1>
+    		<h1 class="text-center text-white"> Code Number:{{$item->codeno}} </h1>
   		</div>
 	</div>
 	
@@ -31,7 +31,7 @@
 
 		<div class="row mt-5">
 			<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
-				<img src="{{asset('front/image/item/saisai_one.jpg')}}" class="img-fluid">
+				<img src="{{asset($item->photo)}}" class="img-fluid">
 			</div>	
 
 
@@ -60,54 +60,38 @@
 
 				<p> 
 					<span class="text-uppercase "> Current Price : </span>
-					<span class="maincolor ml-3 font-weight-bolder"> 180,000 Ks </span>
+					<span class="maincolor ml-3 font-weight-bolder"> {{$item->price}} Ks </span>
 				</p>
 
 				<p> 
 					<span class="text-uppercase "> Brand : </span>
-					<span class="ml-3"> <a href="" class="text-decoration-none text-muted"> Brand Name </a> </span>
+					<span class="ml-3"> <a href="" class="text-decoration-none text-muted"> Brand Name {{$item->name}}</a> </span>
 				</p>
 
 
-				<a href="#" class="addtocartBtn text-decoration-none">
-					<i class="icofont-shopping-cart mr-2"></i> Add to Cart
-				</a>
+				<a href="#" class="addtocartBtn text-decoration-none" data-id="{{$item->id}}" data-name="{{$item->name}}" data-price="{{$item->price}}" data-photo="{{$item->photo}}" data-discount="{{$item->discount}}">Add to Cart</a>
+
 				
 			</div>
 		</div>
 
-		<div class="row mt-5">
+		{{-- <div class="row mt-5">
 			<div class="col-12">
 				<h3> Related Item </h3>
 				<hr>
 			</div>
+
 			
-
+			@foreach($brands as $brand)
 			<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-				<a href="">
-					<img src="{{asset('front/image/item/saisai_two.jpg')}}" class="img-fluid">
+				<a href="{{route('itemdetailpage',$item->id)}}">
+					<img src="{{asset($brand->photo)}}" class="img-fluid">
 				</a>
 			</div>
+			@endforeach
 
-			<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-				<a href="">
-					<img src="{{asset('front/image/item/saisai_three.jpg')}}" class="img-fluid">
-				</a>
-			</div>
-
-			<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-				<a href="">
-					<img src="{{asset('front/image/item/saisai_four.jpg')}}" class="img-fluid">
-				</a>
-			</div>
-
-			<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-				<a href="">
-					<img src="{{asset('front/image/item/saisai_four.jpg')}}" class="img-fluid">
-				</a>
-			</div>
 		</div>
-
+ --}}
 		
 	</div>
 	

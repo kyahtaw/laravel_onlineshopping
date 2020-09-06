@@ -124,7 +124,10 @@
 						</tr> --}}
 						<tr> 
 							<td colspan="5"> 
-								<textarea class="form-control notes" placeholder="Any Request..."></textarea>
+								<textarea class="form-control notes" placeholder="Any Request..." name="textarea"></textarea>
+								{{-- @error('textarea')
+				<div class="alert alert-danger">{{$message}}</div>
+				@enderror --}}
 							</td>
 							<td colspan="3">
 								@role('Customer')

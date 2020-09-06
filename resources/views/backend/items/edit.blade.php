@@ -12,6 +12,9 @@
 				<label for="codeno" class="col-md-2">Code No</label>
 				<div class="col-md-8">
 					<input type="text" name="codeno" class="form-control" readonly="readonly" value="{{$item->codeno}}">
+					@error('codeno')
+				<div class="alert alert-danger">{{$message}}</div>
+				@enderror
 				</div>
 			</div>
 
@@ -19,6 +22,9 @@
 				<label for="name" class="col-md-2">Name</label>
 				<div class="col-md-8">
 					<input type="text" name="name" class="form-control"  value="{{$item->name}}">
+					@error('name')
+				<div class="alert alert-danger">{{$message}}</div>
+				@enderror
 				</div>
 			</div>
 
@@ -36,6 +42,9 @@
 				<label for="price" class="col-md-2">Price</label>
 				<div class="col-md-8">
 					<input type="number" name="price" class="form-control" value="{{$item->price}}">
+					@error('price')
+				<div class="alert alert-danger">{{$message}}</div>
+				@enderror
 				</div>
 			</div>
 
@@ -44,6 +53,9 @@
 				<label for="discount" class="col-md-2">Discount</label>
 				<div class="col-md-8">
 					<input type="number" name="discount" class="form-control" value="{{$item->discount}}">
+					@error('discount')
+				<div class="alert alert-danger">{{$message}}</div>
+				@enderror
 				</div>
 			</div>
 
@@ -51,6 +63,9 @@
 				<label for="description" class="col-md-2">Description</label>
 				<div class="col-md-8">
 					<textarea rows="2" class="form-control" name="description" value="0">{{$item->description}}</textarea>
+					@error('description')
+				<div class="alert alert-danger">{{$message}}</div>
+				@enderror
 				</div>
 			</div>
 
@@ -61,7 +76,7 @@
 					<select class="form-control form-control-md" id="inputBrand" name="brand">
 						<optgroup label="Choose Brand">
 							@foreach($brands as $brand)
-							<option value="{{$brand->id}}">{{$brand->name}}</option>
+							<option value="{{$brand->id}}" @if($brand->id==$item->brand_id){{'selected'}} @endif>{{$brand->name}}</option>
 							@endforeach
 						</optgroup>
 					</select>
@@ -73,8 +88,8 @@
 				<div class="col-md-8">
 					<select class="form-control form-control-md" id="inputBrand" name="subcategory">
 						<optgroup label="Choose Subcategory">
-							@foreach($subcategories as $category)
-							<option value="{{$category->id}}">{{$category->name}}</option>
+							@foreach($subcategories as $subcategory)
+							<option value="{{$subcategory->id}}" @if($subcategory->id==$item->subcategory_id){{'selected'}} @endif>{{$subcategory->name}}</option>
 							@endforeach
 						</optgroup>
 					</select>

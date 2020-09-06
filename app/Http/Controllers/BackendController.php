@@ -12,4 +12,10 @@ class BackendController extends Controller
     	return view('backend.dashboard');
     }
 
+    public function itemfun($value='')
+    {	
+    	
+    	return view('backend.dashboard');
+    }
+
 }

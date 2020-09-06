@@ -11,6 +11,9 @@
 				<label for="name" class="col-md-2">Name</label>
 				<div class="col-md-8">
 					<input type="text" name="name" class="form-control">
+					@error('name')
+				<div class="alert alert-danger">{{$message}}</div>
+				@enderror
 				</div>
 			</div>
 

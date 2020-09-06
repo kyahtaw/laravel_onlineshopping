@@ -87,9 +87,11 @@ class ItemController extends Controller
      * @param  \App\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function show(Item $item)
+    public function show($id)
     {
-        //
+       $itemdetails=Item::find($id);
+       /*dd($itemdetails);*/
+        return view('backend.items.itemdetail',compact('itemdetails'));
     }
 
     /**
@@ -165,7 +167,8 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
-        //
+        $item->delete();
+        return redirect()->route('items.index');
     }
 }
 
